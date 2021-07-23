@@ -29,7 +29,7 @@ namespace FileCopy
         /// </summary>
         private void InitializeComponent()
         {
-            this.targetdir = new System.Windows.Forms.TextBox();
+            this.targetdirtextBox = new System.Windows.Forms.TextBox();
             this.sourcedirtextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,12 +52,12 @@ namespace FileCopy
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).BeginInit();
             this.SuspendLayout();
             // 
-            // targetdir
+            // targetdirtextBox
             // 
-            this.targetdir.Location = new System.Drawing.Point(14, 99);
-            this.targetdir.Name = "targetdir";
-            this.targetdir.Size = new System.Drawing.Size(540, 21);
-            this.targetdir.TabIndex = 0;
+            this.targetdirtextBox.Location = new System.Drawing.Point(14, 99);
+            this.targetdirtextBox.Name = "targetdirtextBox";
+            this.targetdirtextBox.Size = new System.Drawing.Size(540, 21);
+            this.targetdirtextBox.TabIndex = 0;
             // 
             // sourcedirtextBox
             // 
@@ -79,7 +79,7 @@ namespace FileCopy
             this.panel1.Controls.Add(this.targetlabel);
             this.panel1.Controls.Add(this.sourcelabel);
             this.panel1.Controls.Add(this.sourcedirtextBox);
-            this.panel1.Controls.Add(this.targetdir);
+            this.panel1.Controls.Add(this.targetdirtextBox);
             this.panel1.Location = new System.Drawing.Point(-2, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1108, 531);
@@ -135,6 +135,7 @@ namespace FileCopy
             this.updatebutton.TabIndex = 4;
             this.updatebutton.Text = "업데이트";
             this.updatebutton.UseVisualStyleBackColor = true;
+            this.updatebutton.Click += new System.EventHandler(this.updatebutton_Click);
             // 
             // sourcefilelistlabel
             // 
@@ -236,7 +237,7 @@ namespace FileCopy
 
         #endregion
 
-        private System.Windows.Forms.TextBox targetdir;
+        private System.Windows.Forms.TextBox targetdirtextBox;
         private System.Windows.Forms.TextBox sourcedirtextBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox targetfilelistBox;
