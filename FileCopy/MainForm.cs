@@ -16,5 +16,15 @@ namespace FileCopy
         {
             InitializeComponent();
         }
+
+        private void sourcedirectorybutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void targetdirectorybutton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

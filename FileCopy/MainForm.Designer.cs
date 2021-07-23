@@ -44,26 +44,31 @@ namespace FileCopy
             this.targetfilelistBox = new System.Windows.Forms.ListBox();
             this.sourcedirectorybutton = new System.Windows.Forms.Button();
             this.targetdirectorybutton = new System.Windows.Forms.Button();
+            this.dataGridViewfile = new System.Windows.Forms.DataGridView();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileLastTimeWrite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).BeginInit();
             this.SuspendLayout();
             // 
             // targetdir
             // 
             this.targetdir.Location = new System.Drawing.Point(14, 99);
             this.targetdir.Name = "targetdir";
-            this.targetdir.Size = new System.Drawing.Size(786, 21);
+            this.targetdir.Size = new System.Drawing.Size(540, 21);
             this.targetdir.TabIndex = 0;
             // 
             // sourcedirtextBox
             // 
             this.sourcedirtextBox.Location = new System.Drawing.Point(14, 51);
             this.sourcedirtextBox.Name = "sourcedirtextBox";
-            this.sourcedirtextBox.Size = new System.Drawing.Size(786, 21);
+            this.sourcedirtextBox.Size = new System.Drawing.Size(540, 21);
             this.sourcedirtextBox.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridViewfile);
             this.panel1.Controls.Add(this.targetdirectorybutton);
             this.panel1.Controls.Add(this.sourcedirectorybutton);
             this.panel1.Controls.Add(this.targetfilelistBox);
@@ -124,7 +129,7 @@ namespace FileCopy
             // 
             // updatebutton
             // 
-            this.updatebutton.Location = new System.Drawing.Point(806, 46);
+            this.updatebutton.Location = new System.Drawing.Point(567, 48);
             this.updatebutton.Name = "updatebutton";
             this.updatebutton.Size = new System.Drawing.Size(80, 74);
             this.updatebutton.TabIndex = 4;
@@ -175,6 +180,7 @@ namespace FileCopy
             this.sourcedirectorybutton.TabIndex = 9;
             this.sourcedirectorybutton.Text = "경로설정";
             this.sourcedirectorybutton.UseVisualStyleBackColor = true;
+            this.sourcedirectorybutton.Click += new System.EventHandler(this.sourcedirectorybutton_Click);
             // 
             // targetdirectorybutton
             // 
@@ -184,6 +190,29 @@ namespace FileCopy
             this.targetdirectorybutton.TabIndex = 10;
             this.targetdirectorybutton.Text = "경로설정";
             this.targetdirectorybutton.UseVisualStyleBackColor = true;
+            this.targetdirectorybutton.Click += new System.EventHandler(this.targetdirectorybutton_Click);
+            // 
+            // dataGridViewfile
+            // 
+            this.dataGridViewfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewfile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FileName,
+            this.FileLastTimeWrite});
+            this.dataGridViewfile.Location = new System.Drawing.Point(653, 27);
+            this.dataGridViewfile.Name = "dataGridViewfile";
+            this.dataGridViewfile.RowTemplate.Height = 23;
+            this.dataGridViewfile.Size = new System.Drawing.Size(443, 150);
+            this.dataGridViewfile.TabIndex = 11;
+            // 
+            // FileName
+            // 
+            this.FileName.HeaderText = "파일명";
+            this.FileName.Name = "FileName";
+            // 
+            // FileLastTimeWrite
+            // 
+            this.FileLastTimeWrite.HeaderText = "마지막으로 수정된 시간";
+            this.FileLastTimeWrite.Name = "FileLastTimeWrite";
             // 
             // MainForm
             // 
@@ -199,6 +228,7 @@ namespace FileCopy
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +251,9 @@ namespace FileCopy
         private System.Windows.Forms.ToolStripMenuItem 파일복사수동ToolStripMenuItem;
         private System.Windows.Forms.Button targetdirectorybutton;
         private System.Windows.Forms.Button sourcedirectorybutton;
+        private System.Windows.Forms.DataGridView dataGridViewfile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileLastTimeWrite;
     }
 }
 
