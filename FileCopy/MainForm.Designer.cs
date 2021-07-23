@@ -42,26 +42,30 @@ namespace FileCopy
             this.label1 = new System.Windows.Forms.Label();
             this.sourcefllelistBox = new System.Windows.Forms.ListBox();
             this.targetfilelistBox = new System.Windows.Forms.ListBox();
+            this.sourcedirectorybutton = new System.Windows.Forms.Button();
+            this.targetdirectorybutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // targetdir
             // 
-            this.targetdir.Location = new System.Drawing.Point(14, 81);
+            this.targetdir.Location = new System.Drawing.Point(14, 99);
             this.targetdir.Name = "targetdir";
             this.targetdir.Size = new System.Drawing.Size(786, 21);
             this.targetdir.TabIndex = 0;
             // 
             // sourcedirtextBox
             // 
-            this.sourcedirtextBox.Location = new System.Drawing.Point(14, 32);
+            this.sourcedirtextBox.Location = new System.Drawing.Point(14, 51);
             this.sourcedirtextBox.Name = "sourcedirtextBox";
             this.sourcedirtextBox.Size = new System.Drawing.Size(786, 21);
             this.sourcedirtextBox.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.targetdirectorybutton);
+            this.panel1.Controls.Add(this.sourcedirectorybutton);
             this.panel1.Controls.Add(this.targetfilelistBox);
             this.panel1.Controls.Add(this.sourcefllelistBox);
             this.panel1.Controls.Add(this.label1);
@@ -103,7 +107,7 @@ namespace FileCopy
             // sourcelabel
             // 
             this.sourcelabel.AutoSize = true;
-            this.sourcelabel.Location = new System.Drawing.Point(12, 17);
+            this.sourcelabel.Location = new System.Drawing.Point(12, 32);
             this.sourcelabel.Name = "sourcelabel";
             this.sourcelabel.Size = new System.Drawing.Size(57, 12);
             this.sourcelabel.TabIndex = 2;
@@ -112,7 +116,7 @@ namespace FileCopy
             // targetlabel
             // 
             this.targetlabel.AutoSize = true;
-            this.targetlabel.Location = new System.Drawing.Point(14, 66);
+            this.targetlabel.Location = new System.Drawing.Point(12, 81);
             this.targetlabel.Name = "targetlabel";
             this.targetlabel.Size = new System.Drawing.Size(57, 12);
             this.targetlabel.TabIndex = 3;
@@ -120,9 +124,9 @@ namespace FileCopy
             // 
             // updatebutton
             // 
-            this.updatebutton.Location = new System.Drawing.Point(807, 32);
+            this.updatebutton.Location = new System.Drawing.Point(806, 46);
             this.updatebutton.Name = "updatebutton";
-            this.updatebutton.Size = new System.Drawing.Size(84, 70);
+            this.updatebutton.Size = new System.Drawing.Size(80, 74);
             this.updatebutton.TabIndex = 4;
             this.updatebutton.Text = "업데이트";
             this.updatebutton.UseVisualStyleBackColor = true;
@@ -163,6 +167,24 @@ namespace FileCopy
             this.targetfilelistBox.Size = new System.Drawing.Size(529, 292);
             this.targetfilelistBox.TabIndex = 8;
             // 
+            // sourcedirectorybutton
+            // 
+            this.sourcedirectorybutton.Location = new System.Drawing.Point(75, 27);
+            this.sourcedirectorybutton.Name = "sourcedirectorybutton";
+            this.sourcedirectorybutton.Size = new System.Drawing.Size(70, 23);
+            this.sourcedirectorybutton.TabIndex = 9;
+            this.sourcedirectorybutton.Text = "경로설정";
+            this.sourcedirectorybutton.UseVisualStyleBackColor = true;
+            // 
+            // targetdirectorybutton
+            // 
+            this.targetdirectorybutton.Location = new System.Drawing.Point(75, 74);
+            this.targetdirectorybutton.Name = "targetdirectorybutton";
+            this.targetdirectorybutton.Size = new System.Drawing.Size(70, 23);
+            this.targetdirectorybutton.TabIndex = 10;
+            this.targetdirectorybutton.Text = "경로설정";
+            this.targetdirectorybutton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -197,6 +219,8 @@ namespace FileCopy
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 메뉴ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 파일복사수동ToolStripMenuItem;
+        private System.Windows.Forms.Button targetdirectorybutton;
+        private System.Windows.Forms.Button sourcedirectorybutton;
     }
 }
 
