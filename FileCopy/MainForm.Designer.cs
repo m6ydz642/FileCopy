@@ -32,24 +32,24 @@ namespace FileCopy
             this.targetdirtextBox = new System.Windows.Forms.TextBox();
             this.sourcedirtextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.파일복사수동ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sourcelabel = new System.Windows.Forms.Label();
-            this.targetlabel = new System.Windows.Forms.Label();
-            this.updatebutton = new System.Windows.Forms.Button();
-            this.sourcefilelistlabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.sourcefllelistBox = new System.Windows.Forms.ListBox();
-            this.targetfilelistBox = new System.Windows.Forms.ListBox();
-            this.sourcedirectorybutton = new System.Windows.Forms.Button();
-            this.targetdirectorybutton = new System.Windows.Forms.Button();
             this.dataGridViewfile = new System.Windows.Forms.DataGridView();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileLastTimeWrite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.targetdirectorybutton = new System.Windows.Forms.Button();
+            this.sourcedirectorybutton = new System.Windows.Forms.Button();
+            this.targetfilelistBox = new System.Windows.Forms.ListBox();
+            this.sourcefllelistBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sourcefilelistlabel = new System.Windows.Forms.Label();
+            this.updatebutton = new System.Windows.Forms.Button();
+            this.targetlabel = new System.Windows.Forms.Label();
+            this.sourcelabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.메뉴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.파일복사수동ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // targetdirtextBox
@@ -85,114 +85,6 @@ namespace FileCopy
             this.panel1.Size = new System.Drawing.Size(1108, 531);
             this.panel1.TabIndex = 2;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.메뉴ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1106, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 메뉴ToolStripMenuItem
-            // 
-            this.메뉴ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.파일복사수동ToolStripMenuItem});
-            this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
-            this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.메뉴ToolStripMenuItem.Text = "메뉴";
-            // 
-            // 파일복사수동ToolStripMenuItem
-            // 
-            this.파일복사수동ToolStripMenuItem.Name = "파일복사수동ToolStripMenuItem";
-            this.파일복사수동ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.파일복사수동ToolStripMenuItem.Text = "파일 복사 (수동)";
-            // 
-            // sourcelabel
-            // 
-            this.sourcelabel.AutoSize = true;
-            this.sourcelabel.Location = new System.Drawing.Point(12, 32);
-            this.sourcelabel.Name = "sourcelabel";
-            this.sourcelabel.Size = new System.Drawing.Size(57, 12);
-            this.sourcelabel.TabIndex = 2;
-            this.sourcelabel.Text = "원본 경로";
-            // 
-            // targetlabel
-            // 
-            this.targetlabel.AutoSize = true;
-            this.targetlabel.Location = new System.Drawing.Point(12, 81);
-            this.targetlabel.Name = "targetlabel";
-            this.targetlabel.Size = new System.Drawing.Size(57, 12);
-            this.targetlabel.TabIndex = 3;
-            this.targetlabel.Text = "타겟 경로";
-            // 
-            // updatebutton
-            // 
-            this.updatebutton.Location = new System.Drawing.Point(567, 48);
-            this.updatebutton.Name = "updatebutton";
-            this.updatebutton.Size = new System.Drawing.Size(80, 74);
-            this.updatebutton.TabIndex = 4;
-            this.updatebutton.Text = "업데이트";
-            this.updatebutton.UseVisualStyleBackColor = true;
-            this.updatebutton.Click += new System.EventHandler(this.updatebutton_Click);
-            // 
-            // sourcefilelistlabel
-            // 
-            this.sourcefilelistlabel.AutoSize = true;
-            this.sourcefilelistlabel.Location = new System.Drawing.Point(14, 183);
-            this.sourcefilelistlabel.Name = "sourcefilelistlabel";
-            this.sourcefilelistlabel.Size = new System.Drawing.Size(125, 12);
-            this.sourcefilelistlabel.TabIndex = 5;
-            this.sourcefilelistlabel.Text = "원본 경로 파일 리스트";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(565, 183);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 12);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "타겟 경로 파일 리스트";
-            // 
-            // sourcefllelistBox
-            // 
-            this.sourcefllelistBox.FormattingEnabled = true;
-            this.sourcefllelistBox.ItemHeight = 12;
-            this.sourcefllelistBox.Location = new System.Drawing.Point(14, 208);
-            this.sourcefllelistBox.Name = "sourcefllelistBox";
-            this.sourcefllelistBox.Size = new System.Drawing.Size(529, 292);
-            this.sourcefllelistBox.TabIndex = 7;
-            // 
-            // targetfilelistBox
-            // 
-            this.targetfilelistBox.FormattingEnabled = true;
-            this.targetfilelistBox.ItemHeight = 12;
-            this.targetfilelistBox.Location = new System.Drawing.Point(567, 208);
-            this.targetfilelistBox.Name = "targetfilelistBox";
-            this.targetfilelistBox.Size = new System.Drawing.Size(529, 292);
-            this.targetfilelistBox.TabIndex = 8;
-            // 
-            // sourcedirectorybutton
-            // 
-            this.sourcedirectorybutton.Location = new System.Drawing.Point(75, 27);
-            this.sourcedirectorybutton.Name = "sourcedirectorybutton";
-            this.sourcedirectorybutton.Size = new System.Drawing.Size(70, 23);
-            this.sourcedirectorybutton.TabIndex = 9;
-            this.sourcedirectorybutton.Text = "경로설정";
-            this.sourcedirectorybutton.UseVisualStyleBackColor = true;
-            this.sourcedirectorybutton.Click += new System.EventHandler(this.sourcedirectorybutton_Click);
-            // 
-            // targetdirectorybutton
-            // 
-            this.targetdirectorybutton.Location = new System.Drawing.Point(75, 74);
-            this.targetdirectorybutton.Name = "targetdirectorybutton";
-            this.targetdirectorybutton.Size = new System.Drawing.Size(70, 23);
-            this.targetdirectorybutton.TabIndex = 10;
-            this.targetdirectorybutton.Text = "경로설정";
-            this.targetdirectorybutton.UseVisualStyleBackColor = true;
-            this.targetdirectorybutton.Click += new System.EventHandler(this.targetdirectorybutton_Click);
-            // 
             // dataGridViewfile
             // 
             this.dataGridViewfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -215,6 +107,114 @@ namespace FileCopy
             this.FileLastTimeWrite.HeaderText = "마지막으로 수정된 시간";
             this.FileLastTimeWrite.Name = "FileLastTimeWrite";
             // 
+            // targetdirectorybutton
+            // 
+            this.targetdirectorybutton.Location = new System.Drawing.Point(75, 74);
+            this.targetdirectorybutton.Name = "targetdirectorybutton";
+            this.targetdirectorybutton.Size = new System.Drawing.Size(70, 23);
+            this.targetdirectorybutton.TabIndex = 10;
+            this.targetdirectorybutton.Text = "경로설정";
+            this.targetdirectorybutton.UseVisualStyleBackColor = true;
+            this.targetdirectorybutton.Click += new System.EventHandler(this.targetdirectorybutton_Click);
+            // 
+            // sourcedirectorybutton
+            // 
+            this.sourcedirectorybutton.Location = new System.Drawing.Point(75, 27);
+            this.sourcedirectorybutton.Name = "sourcedirectorybutton";
+            this.sourcedirectorybutton.Size = new System.Drawing.Size(70, 23);
+            this.sourcedirectorybutton.TabIndex = 9;
+            this.sourcedirectorybutton.Text = "경로설정";
+            this.sourcedirectorybutton.UseVisualStyleBackColor = true;
+            this.sourcedirectorybutton.Click += new System.EventHandler(this.sourcedirectorybutton_Click);
+            // 
+            // targetfilelistBox
+            // 
+            this.targetfilelistBox.FormattingEnabled = true;
+            this.targetfilelistBox.ItemHeight = 12;
+            this.targetfilelistBox.Location = new System.Drawing.Point(567, 208);
+            this.targetfilelistBox.Name = "targetfilelistBox";
+            this.targetfilelistBox.Size = new System.Drawing.Size(529, 292);
+            this.targetfilelistBox.TabIndex = 8;
+            // 
+            // sourcefllelistBox
+            // 
+            this.sourcefllelistBox.FormattingEnabled = true;
+            this.sourcefllelistBox.ItemHeight = 12;
+            this.sourcefllelistBox.Location = new System.Drawing.Point(14, 208);
+            this.sourcefllelistBox.Name = "sourcefllelistBox";
+            this.sourcefllelistBox.Size = new System.Drawing.Size(529, 292);
+            this.sourcefllelistBox.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(565, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "타겟 경로 파일 리스트";
+            // 
+            // sourcefilelistlabel
+            // 
+            this.sourcefilelistlabel.AutoSize = true;
+            this.sourcefilelistlabel.Location = new System.Drawing.Point(14, 183);
+            this.sourcefilelistlabel.Name = "sourcefilelistlabel";
+            this.sourcefilelistlabel.Size = new System.Drawing.Size(125, 12);
+            this.sourcefilelistlabel.TabIndex = 5;
+            this.sourcefilelistlabel.Text = "원본 경로 파일 리스트";
+            // 
+            // updatebutton
+            // 
+            this.updatebutton.Location = new System.Drawing.Point(567, 48);
+            this.updatebutton.Name = "updatebutton";
+            this.updatebutton.Size = new System.Drawing.Size(80, 74);
+            this.updatebutton.TabIndex = 4;
+            this.updatebutton.Text = "업데이트";
+            this.updatebutton.UseVisualStyleBackColor = true;
+            this.updatebutton.Click += new System.EventHandler(this.updatebutton_Click);
+            // 
+            // targetlabel
+            // 
+            this.targetlabel.AutoSize = true;
+            this.targetlabel.Location = new System.Drawing.Point(12, 81);
+            this.targetlabel.Name = "targetlabel";
+            this.targetlabel.Size = new System.Drawing.Size(57, 12);
+            this.targetlabel.TabIndex = 3;
+            this.targetlabel.Text = "타겟 경로";
+            // 
+            // sourcelabel
+            // 
+            this.sourcelabel.AutoSize = true;
+            this.sourcelabel.Location = new System.Drawing.Point(12, 32);
+            this.sourcelabel.Name = "sourcelabel";
+            this.sourcelabel.Size = new System.Drawing.Size(57, 12);
+            this.sourcelabel.TabIndex = 2;
+            this.sourcelabel.Text = "원본 경로";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.메뉴ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1106, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 메뉴ToolStripMenuItem
+            // 
+            this.메뉴ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.파일복사수동ToolStripMenuItem});
+            this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
+            this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.메뉴ToolStripMenuItem.Text = "메뉴";
+            // 
+            // 파일복사수동ToolStripMenuItem
+            // 
+            this.파일복사수동ToolStripMenuItem.Name = "파일복사수동ToolStripMenuItem";
+            this.파일복사수동ToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.파일복사수동ToolStripMenuItem.Text = "파일 복사 (수동)";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -227,9 +227,9 @@ namespace FileCopy
             this.Text = "FileCopyProgram";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
