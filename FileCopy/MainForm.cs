@@ -16,10 +16,32 @@ namespace FileCopy
         public MainForm()
         {
             InitializeComponent();
+
+            targetdirtextBox.TextChanged += TargetdirtextBox_TextChanged;
+            sourcedirtextBox.TextChanged += SourcedirtextBox_TextChanged;
+        }
+        // 텍스트 박스에 직접 입력을 했을 경우
+        private void SourcedirtextBox_TextChanged(object sender, EventArgs e)
+
+        {
+            if (sender is TextBox text)
+            {
+                SourceDir = text.Text;
+            }
+        }
+        // 텍스트 박스에 직접 입력을 했을 경우
+        private void TargetdirtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox text)
+            {
+                TargetDir = text.Text;
+            }
         }
 
         public string SourceDir { get; set; }
         public string TargetDir { get; set; }
+
+        // 경로버튼 클릭으로 선택했을경우
         private void sourcedirectorybutton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dl = new FolderBrowserDialog();
@@ -27,7 +49,7 @@ namespace FileCopy
             sourcedirtextBox.Text = dl.SelectedPath ;
             SourceDir = sourcedirtextBox.Text; // 수동으로 입력 가능하게 텍스트 내용을 경로로 넣음
         }
-
+        // 경로버튼 클릭으로 선택했을경우
         private void targetdirectorybutton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dl = new FolderBrowserDialog();
@@ -36,6 +58,7 @@ namespace FileCopy
             TargetDir = targetdirtextBox.Text;
         }
 
+ 
         private void updatebutton_Click(object sender, EventArgs e)
         {
             DirectoryWork(SourceDir, TargetDir);
@@ -84,7 +107,7 @@ namespace FileCopy
                     destfileinfo1  = new FileInfo(destDirName + "\\" + destfileinfo.Name);
 
                     if (sourcefileinfo.Name.Equals(destfileinfo.Name) && 
-                        sourcefileinfo.LastWriteTime.Equals(destfileinfo.LastWriteTime))
+                        !sourcefileinfo.LastWriteTime.Equals(destfileinfo.LastWriteTime))
                     {
                         // 소스경로의 파일이랑 타겟 경로의 파일의 마지막 작성(수정) 시간이 동일하지 않으면 파일을 수정한것으로 간주
                         destfileinfo.CopyTo(path, true); // source파일에서 destfile로 복사함 (덮어쓰기 허용)
