@@ -82,7 +82,7 @@ namespace FileCopy
                 // path에 target경로 + 원본파일에 폴더 이름을 넣어 CopyDirectory함수로 전달함
                 // source경로에 c:\test\something target경로에 c:\test\가 있으면
                 // target경로에는 something폴더가 없으므로 CopyDirectory함수에서 추가함
-                CopyDirectory(sourceDirName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
+                CopyDirectory(sourcedirinfoiterator.FullName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
             }
         }
 
@@ -99,7 +99,7 @@ namespace FileCopy
             foreach (FileInfo sourcefileinfo in sourcefileArray)
             {
                 string path = Path.Combine(destDirName, sourcefileinfo.Name); // 복사를 위한 타겟 경로 + 원본파일 경로추가
-                // FileInfo sourcefileinfo1 = new FileInfo(destDirName + "\\" + sourcefileinfo.Name); 
+                // FileInfo sourcefileinfo1 = new FileInfo(sourceDirName + "\\" + sourcefileinfo.Name); 
 
                 foreach (FileInfo destfileinfo in destfileArray) 
                     // sourcefiles를 대상으로 상대 destdir경로의 파일들을 반복하며 if문으로 destdir에는 존재하지 않는 파일을 복사함
