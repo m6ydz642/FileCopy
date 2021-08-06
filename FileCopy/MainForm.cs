@@ -82,7 +82,7 @@ namespace FileCopy
                 // path에 target경로 + 원본파일에 폴더 이름을 넣어 CopyDirectory함수로 전달함
                 // source경로에 c:\test\something target경로에 c:\test\가 있으면
                 // target경로에는 something폴더가 없으므로 CopyDirectory함수에서 추가함
-                CopyDirectory(sourcedirinfoiterator.FullName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
+                DirectoryWork(sourcedirinfoiterator.FullName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
             }
         }
 
@@ -94,20 +94,21 @@ namespace FileCopy
             FileInfo[] sourcefileArray = sourcedir.GetFiles(); // 현재 경로의 파일
             FileInfo[] destfileArray = destdir.GetFiles(); // 현재 경로의 파일
 
-            FileInfo destfileinfo1 = null;
+            FileInfo destfileinfo_CombinePath = null;
+            FileInfo sourcefileinfo_CombinePath = null;
 
             foreach (FileInfo sourcefileinfo in sourcefileArray)
             {
                 string path = Path.Combine(destDirName, sourcefileinfo.Name); // 복사를 위한 타겟 경로 + 원본파일 경로추가
-                // FileInfo sourcefileinfo1 = new FileInfo(sourceDirName + "\\" + sourcefileinfo.Name); 
+                sourcefileinfo_CombinePath = new FileInfo(sourceDirName + "\\" + sourcefileinfo.Name); 
 
                 foreach (FileInfo destfileinfo in destfileArray) 
                     // sourcefiles를 대상으로 상대 destdir경로의 파일들을 반복하며 if문으로 destdir에는 존재하지 않는 파일을 복사함
                 {
-                    destfileinfo1  = new FileInfo(destDirName + "\\" + destfileinfo.Name);
+                    destfileinfo_CombinePath = new FileInfo(destDirName + "\\" + destfileinfo.Name);
 
                     if (sourcefileinfo.Name.Equals(destfileinfo.Name) && 
-                        !sourcefileinfo.LastWriteTime.Equals(destfileinfo.LastWriteTime))
+                        !sourcefileinfo.LastWriteTime.Equals(destfileinfo_CombinePath.LastWriteTime))
                     {
                         // 소스경로의 파일이랑 타겟 경로의 파일의 마지막 작성(수정) 시간이 동일하지 않으면 파일을 수정한것으로 간주
                         destfileinfo.CopyTo(path, true); // source파일에서 destfile로 복사함 (덮어쓰기 허용)
