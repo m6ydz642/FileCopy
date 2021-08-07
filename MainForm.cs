@@ -78,6 +78,7 @@ namespace FileCopy
             sourcedirtextBox.Text = dl.SelectedPath ;
             SourceDir = sourcedirtextBox.Text; // 수동으로 입력 가능하게 텍스트 내용을 경로로 넣음
         }
+
         // 경로버튼 클릭으로 선택했을경우
         private void targetdirectorybutton_Click(object sender, EventArgs e)
         {
