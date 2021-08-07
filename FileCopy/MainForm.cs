@@ -74,7 +74,7 @@ namespace FileCopy
             CopyDirectory(sourceDirName, destDirName);
             CopyFile(sourceDirName, destDirName);
             DeleteFile(sourceDirName, destDirName);
-            //DeleteDirectory(sourceDirName, destDirName);
+            DeleteDirectory(sourceDirName, destDirName);
 
             foreach (DirectoryInfo sourcedirinfoiterator in sourcedirArray)
             {
@@ -83,6 +83,29 @@ namespace FileCopy
                 // source경로에 c:\test\something target경로에 c:\test\가 있으면
                 // target경로에는 something폴더가 없으므로 CopyDirectory함수에서 추가함
                 DirectoryWork(sourcedirinfoiterator.FullName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
+            }
+        }
+
+        private void DeleteDirectory(string sourceDirName, string destDirName)
+        {
+            DirectoryInfo destdir = new DirectoryInfo(destDirName);
+            DirectoryInfo[] destdirArray = destdir.GetDirectories();
+
+            FileInfo destfileinfo = new FileInfo(destDirName);
+            destfileinfo.Attributes = FileAttributes.Normal; // 파일속성 일반으로 변경 (삭제를 위해)
+
+            // 폴더 삭제 업데이트 
+            // 소스에는 없는데 타겟에 있으면 삭제처리
+            foreach (DirectoryInfo targetdir in destdirArray)
+            {
+                string tempPath = Path.Combine(sourceDirName, targetdir.Name);
+                string delPath = Path.Combine(destDirName, targetdir.Name);
+                if (!System.IO.Directory.Exists(tempPath)) // source는 있는데 target는 없는 케이스
+                {
+                    string[] DirectorySplit = tempPath.Split('\\');
+                    dataGridViewfile.Rows.Add(DirectorySplit[DirectorySplit.Length - 1], targetdir.LastWriteTime);
+                    Directory.Delete(delPath,true);
+                }
             }
         }
 
