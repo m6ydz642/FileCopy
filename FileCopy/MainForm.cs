@@ -73,7 +73,7 @@ namespace FileCopy
 
             CopyDirectory(sourceDirName, destDirName);
             CopyFile(sourceDirName, destDirName);
-            //DeleteFile(sourceDirName, destDirName);
+            DeleteFile(sourceDirName, destDirName);
             //DeleteDirectory(sourceDirName, destDirName);
 
             foreach (DirectoryInfo sourcedirinfoiterator in sourcedirArray)
@@ -84,6 +84,32 @@ namespace FileCopy
                 // target경로에는 something폴더가 없으므로 CopyDirectory함수에서 추가함
                 DirectoryWork(sourcedirinfoiterator.FullName, path); // 소스파일에 폴더가 있는만큼 재귀로 호출함
             }
+        }
+
+        private void DeleteFile(string sourceDirName, string destDirName)
+        {
+            DirectoryInfo sourcedir = new DirectoryInfo(sourceDirName);
+            DirectoryInfo destdir = new DirectoryInfo(destDirName);
+
+            FileInfo destfileinfo_getDirfiles = new FileInfo(destDirName); // 파일 전체 경로 및 정보 가져오기
+            FileInfo[] deestfilesArray = destdir.GetFiles(); // 들어있는 파일들 배열형태로 가져오기 
+
+            // 타겟에는 있는데 소스에는 없는걸 삭제처리 하면 됨
+            foreach (FileInfo destfile in deestfilesArray) // sourcefiles를 대상으로 상대 destdir경로의 파일들을 검색함
+            {
+                FileInfo destfileinfo = new FileInfo(destDirName + "\\" + destfile.Name); // 타겟 경로 + 타겟 파일
+                string tempPath = Path.Combine(sourceDirName, destfile.Name); // 원본 경로 + target 들어있는 파일명
+
+                if (!System.IO.File.Exists(tempPath)) // 소스파일에 파일이 존재하는지를 확인함 
+                    // source폴더에는 존재하지않는데 target에만 존재한다면 source폴더에 맞춰서 삭제하는거임
+                {
+                    // target의 폴더를 반복하고 있을 때 sources폴더에 그 target 의 파일 내용이 없으면 삭제한 것으로 간주
+                    string[] DirectorySplit = tempPath.Split('\\');
+                    dataGridViewfile.Rows.Add(DirectorySplit[DirectorySplit.Length - 1], destfileinfo.LastWriteTime);
+                    destfile.Delete();
+                }
+            }
+
         }
 
         private void CopyFile(string sourceDirName, string destDirName)
