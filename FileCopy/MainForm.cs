@@ -13,16 +13,46 @@ namespace FileCopy
 {
     public partial class MainForm : Form
     {
+        public string SourceDir { get; set; }
+        public string TargetDir { get; set; }
+        public string getUserNameFolder { get; set; }
         public MainForm()
         {
             InitializeComponent();
+            getUserNameFolder = Environment.GetFolderPath
+                (System.Environment.SpecialFolder.Personal) + "\\path.txt";
 
+            LoadingPath();
             targetdirtextBox.TextChanged += TargetdirtextBox_TextChanged;
             sourcedirtextBox.TextChanged += SourcedirtextBox_TextChanged;
+            FormClosed += MainForm_FormClosed;
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            using (StreamWriter writer = new StreamWriter(getUserNameFolder))
+            {
+                writer.Write(SourceDir + ";");
+                writer.Write(TargetDir);
+            }
+        }
+
+        private void LoadingPath()
+        {
+
+            using(StreamReader reader = new StreamReader(getUserNameFolder))
+            {
+                string getPathDir = reader.ReadToEnd();
+                string[] splitDir = getPathDir.Split(';');
+                SourceDir = splitDir[0];
+                TargetDir = splitDir[1];
+                sourcedirtextBox.Text = SourceDir;
+                targetdirtextBox.Text = TargetDir;
+            }
         }
         // 텍스트 박스에 직접 입력을 했을 경우
         private void SourcedirtextBox_TextChanged(object sender, EventArgs e)
-
         {
             if (sender is TextBox text)
             {
@@ -38,8 +68,7 @@ namespace FileCopy
             }
         }
 
-        public string SourceDir { get; set; }
-        public string TargetDir { get; set; }
+
 
         // 경로버튼 클릭으로 선택했을경우
         private void sourcedirectorybutton_Click(object sender, EventArgs e)
