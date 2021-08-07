@@ -19,9 +19,6 @@ namespace FileCopy
         public MainForm()
         {
             InitializeComponent();
-            getUserNameFolder = Environment.GetFolderPath
-                (System.Environment.SpecialFolder.Personal) + "\\path.txt";
-
             LoadingPath();
             targetdirtextBox.TextChanged += TargetdirtextBox_TextChanged;
             sourcedirtextBox.TextChanged += SourcedirtextBox_TextChanged;
@@ -40,15 +37,26 @@ namespace FileCopy
 
         private void LoadingPath()
         {
+            getUserNameFolder = Environment.GetFolderPath
+             (System.Environment.SpecialFolder.Personal) + "\\path.txt";
 
-            using(StreamReader reader = new StreamReader(getUserNameFolder))
+            FileInfo getUsmeFolderFileInfo = new FileInfo(getUserNameFolder);
+            if (getUsmeFolderFileInfo.Exists) // 파일이 존재하면
             {
-                string getPathDir = reader.ReadToEnd();
-                string[] splitDir = getPathDir.Split(';');
-                SourceDir = splitDir[0];
-                TargetDir = splitDir[1];
-                sourcedirtextBox.Text = SourceDir;
-                targetdirtextBox.Text = TargetDir;
+                using (StreamReader reader = new StreamReader(getUserNameFolder))
+                {
+                    string getPathDir = reader.ReadToEnd();
+                    string[] splitDir = getPathDir.Split(';');
+                    SourceDir = splitDir[0];
+                    TargetDir = splitDir[1];
+                    sourcedirtextBox.Text = SourceDir;
+                    targetdirtextBox.Text = TargetDir;
+                }
+            }
+            else
+            {
+                MessageBox.Show("path.txt파일이 내 문서에 존재하지않습니다\r\n경로 설정 후 프로그램을 " +
+                    "종료시 새롭게 생성합니다", "파일이 없엉");
             }
         }
         // 텍스트 박스에 직접 입력을 했을 경우
